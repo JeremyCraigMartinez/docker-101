@@ -2,7 +2,7 @@
   "name": "docker-101",
   "version": "0.0.1",
   "description": "CS 6460 Ed Tech - Docker 101",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "test": "jest"
   },

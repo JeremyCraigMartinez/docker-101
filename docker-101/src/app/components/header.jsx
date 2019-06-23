@@ -4,7 +4,7 @@ import React, { Fragment } from 'react';
 
 import Banner from './home/banner';
 
-type Props = {};
+type Props = {||};
 
 const Header = (props: Props) => (
   <Fragment>

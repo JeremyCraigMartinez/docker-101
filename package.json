@@ -1,0 +1,22 @@
+{
+  "name": "docker-101",
+  "version": "0.0.1",
+  "description": "CS 6460 Ed Tech - Docker 101",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeremyCraigMartinez/docker-101.git"
+  },
+  "author": "Jeremy Martinez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JeremyCraigMartinez/docker-101/issues"
+  },
+  "homepage": "https://github.com/JeremyCraigMartinez/docker-101#readme",
+  "dependencies": {
+    "create-react-app": "^3.0.1"
+  }
+}

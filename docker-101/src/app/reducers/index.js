@@ -1,7 +1,8 @@
 // @flow strict
 
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
+import thunk from 'redux-thunk'; // $FlowFixMe
+import { createLogger } from 'redux-logger';
 import type { Reducer } from 'redux';
 
 import base, { defaultState as baseDefaultState } from './base';
@@ -20,10 +21,10 @@ export const defaultState = {
 
 export type Reducers = typeof reducers;
 
-export function configureStore(initialState: State = defaultState) {
-  return createStore( // $FlowFixMe
-    combineReducers,
+export function configureStore(initialState: State = defaultState) { // $FlowFixMe
+  return createStore(
+    reducers,
     initialState,
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, createLogger()),
   );
 }

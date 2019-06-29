@@ -2,11 +2,9 @@
 
 import React, { Fragment } from 'react';
 
-import Banner from './home/banner';
+import AutonomyBanner from './home/autonomy-banner';
 
-type Props = {||};
-
-const Header = (props: Props) => (
+const Header = () => (
   <Fragment>
     <div className='column'>
       <header>
@@ -21,7 +19,7 @@ const Header = (props: Props) => (
         101
       </h1>
     </div>
-    <Banner />
+    <AutonomyBanner />
   </Fragment>
 );
 

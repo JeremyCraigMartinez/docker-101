@@ -5,9 +5,11 @@ import type { Dispatch as ReduxDispatch } from 'redux';
 import type { State } from '../../reducers/types/reducer-states';
 
 // Actions
-import type { SimpleAction } from '../base';
+import type { SimpleAction, SelectTopic } from '../base';
 
-export type Action = SimpleAction;
+export type Action =
+  SimpleAction |
+  SelectTopic;
 
 export type GetState = () => State;
 export type Dispatch =

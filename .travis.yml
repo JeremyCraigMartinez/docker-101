@@ -13,4 +13,11 @@ before_script:
 script:
     - npm run lint
     - npm run flow
-    - npm run deploy
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: $TRAVIS_BUILD_DIR/docker-101
+  on:
+    branch: master

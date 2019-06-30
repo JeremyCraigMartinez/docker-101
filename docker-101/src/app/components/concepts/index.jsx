@@ -18,15 +18,15 @@ const Concepts = () => (
     <h1>Concepts</h1>
 
     <Switch>
-      <Route exact path='/concepts/' component={Main} />
-      <Route path='/concepts/lecture/pre' component={LecturePre} />
-      <Route path='/concepts/lecture/post' component={LecturePost} />
-      <Route path='/concepts/lecture' component={Lecture} />
-      <Route path='/concepts/assignment/pre' component={AssignmentPre} />
-      <Route path='/concepts/assignment/post' component={AssignmentPost} />
-      <Route path='/concepts/assignment' component={Assignment} />
-      <Route path='/concepts/feedback/pre' component={FeedbackPre} />
-      <Route path='/concepts/feedback' component={Feedback} />
+      <Route exact path='/docker-101/concepts/' component={Main} />
+      <Route path='/docker-101/concepts/lecture/pre' component={LecturePre} />
+      <Route path='/docker-101/concepts/lecture/post' component={LecturePost} />
+      <Route path='/docker-101/concepts/lecture' component={Lecture} />
+      <Route path='/docker-101/concepts/assignment/pre' component={AssignmentPre} />
+      <Route path='/docker-101/concepts/assignment/post' component={AssignmentPost} />
+      <Route path='/docker-101/concepts/assignment' component={Assignment} />
+      <Route path='/docker-101/concepts/feedback/pre' component={FeedbackPre} />
+      <Route path='/docker-101/concepts/feedback' component={Feedback} />
     </Switch>
   </div>
 );

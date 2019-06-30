@@ -22,12 +22,13 @@ export default () => (
     <Header />
     <div className='column'>
       <Switch>
-        <Route path='/services' component={Services} />
-        <Route path='/containers' component={Containers} />
-        <Route path='/images' component={Images} />
-        <Route path='/concepts' component={Concepts} />
-        <Route path='/network' component={Network} />
-        <Route path='/volume' component={Volume} />
+        <Route path='/docker-101/services' component={Services} />
+        <Route path='/docker-101/containers' component={Containers} />
+        <Route path='/docker-101/images' component={Images} />
+        <Route path='/docker-101/concepts' component={Concepts} />
+        <Route path='/docker-101/network' component={Network} />
+        <Route path='/docker-101/volume' component={Volume} />
+        <Redirect from='/' to='/docker-101' />
       </Switch>
     </div>
   </Router>

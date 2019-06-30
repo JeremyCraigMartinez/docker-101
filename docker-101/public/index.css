@@ -144,6 +144,14 @@ a:not(:hover) {
   text-decoration: none;
 }
 
+button {
+  color: steelblue;
+}
+
+button:not(:hover) {
+  text-decoration: none;
+}
+
 pre,
 code {
   font-family: "Menlo", monospace;

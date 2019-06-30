@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { // $FlowFixMe
-  BrowserRouter as Router, // $FlowFixMe
+  HashRouter as Router, // $FlowFixMe
   Switch, // $FlowFixMe
   Route, // $FlowFixMe
   Redirect,

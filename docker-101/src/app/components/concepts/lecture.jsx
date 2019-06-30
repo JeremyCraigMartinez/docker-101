@@ -55,6 +55,8 @@ const Lecture = () => (
       <li><a target='_blank' rel='noopener noreferrer' href='https://docs.docker.com/engine/security/security/'>https://docs.docker.com/engine/security/security</a></li>
       <li><a target='_blank' rel='noopener noreferrer' href='https://neuvector.com/container-security/containers-vs-virtual-machines-vms/'>https://neuvector.com/container-security/containers-vs-virtual-machines-vms</a></li>
       <li><a target='_blank' rel='noopener noreferrer' href='https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612'>https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612</a></li>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html'>https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html</a></li>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html'>https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html</a></li>
     </ul>
   </div>
 );

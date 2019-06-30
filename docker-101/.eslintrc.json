@@ -26,6 +26,7 @@
         "import/prefer-default-export": "off",
         "jsx-quotes": ["error", "prefer-single"],
         "jsx-a11y/anchor-is-valid": "off",
-        "max-len": "off"
+        "max-len": "off",
+        "react/jsx-one-expression-per-line": "off"
     }
 }

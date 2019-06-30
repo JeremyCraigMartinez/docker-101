@@ -1,7 +1,5 @@
 // @flow strict
 
-import type { Dispatch as ReduxDispatch } from 'redux';
-
 import type { State } from '../../reducers/types/reducer-states';
 
 // Actions
@@ -12,8 +10,6 @@ export type Action =
   SelectTopic;
 
 export type GetState = () => State;
-export type Dispatch =
-  & ReduxDispatch<Action>
-  & Thunk<Action>; // eslint-disable-line no-use-before-define
-
-export type Thunk<A> = ((Dispatch, GetState) => Promise<void> | void) => A;
+export type Actions = Action | ThunkAction | Promise<Action> | Array<Action> | Array<Promise<Action>>; // eslint-disable-line no-use-before-define
+export type Dispatch = (action: Actions) => void;
+export type ThunkAction = (dispatch: Dispatch, getState: GetState) => void | Promise<void | boolean>;

@@ -13,3 +13,6 @@ before_script:
 script:
     - npm run lint
     - npm run flow
+deploy:
+    - cd $TRAVIS_BUILD_DIR/docker-101
+    - npm run deploy

@@ -43,7 +43,7 @@ const Lecture = () => (
         </tr>
         <tr>
           <td>Case study: AWS ECS. This is an example of an existing production ready product to deploy containers on</td>
-          <td><iframe title='AWS ECS' width='560' height='315' src='https://www.youtube.com/embed/YEvU6uIckDc' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><iframe title='AWS ECS' width='560' height='315' src='https://www.youtube.com/embed/eq4wL2MiNqo' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
           <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
         </tr>
       </tbody>

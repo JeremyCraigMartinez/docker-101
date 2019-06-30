@@ -9,6 +9,7 @@ export const defaultState = {
   result: null,
   path: params.get('path') === 'traditional' ? 'traditional' : 'autonomy',
   topic: null,
+  subject: null,
 };
 
 export default (state: BaseState = defaultState, action: Action) => {
@@ -22,6 +23,7 @@ export default (state: BaseState = defaultState, action: Action) => {
       return {
         ...state,
         topic: action.topic,
+        subject: action.subject,
       };
     default:
       return state;

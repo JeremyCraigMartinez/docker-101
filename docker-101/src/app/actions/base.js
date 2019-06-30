@@ -1,6 +1,6 @@
 // @flow strict
 
-import type { LectureTopic } from '../reducers/types';
+import type { LectureTopic, Subject } from '../reducers/types';
 import type { Dispatch } from './types';
 
 export type SimpleAction = {
@@ -18,11 +18,13 @@ export const simpleAction = () => (dispatch: Dispatch) => (
 export type SelectTopic = {
   type: 'SELECT_TOPIC',
   topic: LectureTopic,
+  subject: Subject,
 };
 
-export const selectTopic = (topic: LectureTopic) => (dispatch: Dispatch) => (
+export const selectTopic = (topic: LectureTopic, subject: Subject) => (dispatch: Dispatch) => (
   dispatch({
     type: 'SELECT_TOPIC',
     topic,
+    subject,
   })
 );

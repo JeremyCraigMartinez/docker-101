@@ -7,3 +7,8 @@ import type { State } from './reducer-states';
 export type Store = ReduxStore<State, Action>;
 
 export type LectureTopic = 'concepts' | 'containers' | 'images' | 'network' | 'services' | 'volume' | null;
+
+export type Subject = {
+  week: number,
+  subpath?: number,
+};

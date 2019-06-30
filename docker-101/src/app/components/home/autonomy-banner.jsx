@@ -5,23 +5,24 @@ import { Link } from 'react-router-dom'; // $FlowFixMe
 import { connect } from 'react-redux';
 import { selectTopic } from '../../actions/base';
 
-import type { LectureTopic } from '../../reducers/types';
+import type { LectureTopic, Subject } from '../../reducers/types';
 import type { State } from '../../reducers/types/reducer-states';
 import type { Dispatch } from '../../actions/types';
 
 type StateProps = {
   topic: LectureTopic,
+  week: number | null,
 };
 
 type DispatchProps = {
-  onTopicSelect: LectureTopic => void,
+  onTopicSelect: (LectureTopic, Subject) => void,
 };
 
 type Props = StateProps & DispatchProps & {
   topic: LectureTopic,
 };
 
-const Banner = ({ onTopicSelect, topic }: Props) => (
+const Banner = ({ onTopicSelect, topic, week }: Props) => (
   <div id='examples'>
     <div id='examples-deep' style={{ transform: 'translate(-79px, 27px)' }}>
       <canvas height='575' width='1253.75' style={{ left: '-125px', top: '-57px' }} />
@@ -85,7 +86,7 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
           <a href='.' transform='translate(974.2785792574936,112.5)'>
             <path style={{ fill: '#93d6fb' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
-          <Link to='/docker-101/services/' onClick={() => onTopicSelect('services')} transform='translate(1104.1823898251594,112.5)'>
+          <Link to='/docker-101/services/' onClick={() => onTopicSelect('services', { week: 4 })} transform='translate(1104.1823898251594,112.5)'>
             <path style={{ fill: (topic && topic.endsWith('services') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(1234.086200392825,112.5)'>
@@ -103,11 +104,11 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
           <a href='.' transform='translate(389.7114317029974,225)'>
             <path style={{ fill: '#DCDCDC' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
-          <Link to='/docker-101/containers/' onClick={() => onTopicSelect('containers')} transform='translate(519.6152422706632,225)'>
-            <path style={{ fill: (topic && topic.endsWith('containers') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
+          <Link to='/docker-101/containers/' onClick={() => onTopicSelect('containers', { week: 2 })} transform='translate(519.6152422706632,225)'>
+            <path style={{ fill: (topic && topic.endsWith('containers') && week === 2 ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
-          <Link to='/docker-101/images/' onClick={() => onTopicSelect('images')} transform='translate(649.519052838329,225)'>
-            <path style={{ fill: (topic && topic.endsWith('images') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
+          <Link to='/docker-101/images/' onClick={() => onTopicSelect('images', { week: 3 })} transform='translate(649.519052838329,225)'>
+            <path style={{ fill: (topic && topic.endsWith('images') && week === 3 ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(779.4228634059948,225)'>
             <path style={{ fill: '#DCDCDC' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
@@ -131,7 +132,7 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
             <path style={{ fill: '#DCDCDC' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
           {/* State 1 - Intro */}
-          <Link to='/docker-101/concepts/' onClick={() => onTopicSelect('concepts')} title='intro' transform='translate(324.7595264191645,337.5)'>
+          <Link to='/docker-101/concepts/' onClick={() => onTopicSelect('concepts', { week: 1 })} title='intro' transform='translate(324.7595264191645,337.5)'>
             <path style={{ fill: (topic && topic.endsWith('concepts') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(454.6633369868303,337.5)'>
@@ -149,7 +150,7 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
           <a href='.' transform='translate(974.2785792574936,337.5)'>
             <path style={{ fill: '#93d6fb' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
-          <Link to='/docker-101/network/' onClick={() => onTopicSelect('network')} transform='translate(1104.1823898251594,337.5)'>
+          <Link to='/docker-101/network/' onClick={() => onTopicSelect('network', { week: 4 })} transform='translate(1104.1823898251594,337.5)'>
             <path style={{ fill: (topic && topic.endsWith('network') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(1234.086200392825,337.5)'>
@@ -167,11 +168,11 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
           <a href='.' transform='translate(389.7114317029974,450)'>
             <path style={{ fill: '#DCDCDC' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
-          <Link to='/docker-101/images/' onClick={() => onTopicSelect('images')} transform='translate(519.6152422706632,450)'>
-            <path style={{ fill: (topic && topic.endsWith('images') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
+          <Link to='/docker-101/images/' onClick={() => onTopicSelect('images', { week: 2 })} transform='translate(519.6152422706632,450)'>
+            <path style={{ fill: (topic && topic.endsWith('images') && week === 2 ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
-          <Link to='/docker-101/containers/' onClick={() => onTopicSelect('containers')} transform='translate(649.519052838329,450)'>
-            <path style={{ fill: (topic && topic.endsWith('containers') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
+          <Link to='/docker-101/containers/' onClick={() => onTopicSelect('containers', { week: 3 })} transform='translate(649.519052838329,450)'>
+            <path style={{ fill: (topic && topic.endsWith('containers') && week === 3 ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(779.4228634059948,450)'>
             <path style={{ fill: '#DCDCDC' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
@@ -212,7 +213,7 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
           <a href='.' transform='translate(974.2785792574936,562.5)'>
             <path style={{ fill: '#93d6fb' }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </a>
-          <Link to='/docker-101/volume/' onClick={() => onTopicSelect('volume')} transform='translate(1104.1823898251594,562.5)'>
+          <Link to='/docker-101/volume/' onClick={() => onTopicSelect('volume', { week: 4 })} transform='translate(1104.1823898251594,562.5)'>
             <path style={{ fill: (topic && topic.endsWith('volume') ? '#066ba2' : '#099cec') }} d='m0,-75l64.9519052838329,37.49999999999999l0,75l-64.95190528383289,37.500000000000014l-64.9519052838329,-37.499999999999964l-4.263256414560601e-14,-74.99999999999999z' />
           </Link>
           <a href='.' transform='translate(1234.086200392825,562.5)'>
@@ -226,10 +227,11 @@ const Banner = ({ onTopicSelect, topic }: Props) => (
 
 const mapStateToProps = (state: State): StateProps => ({
   topic: state.base.topic,
+  week: state.base.subject != null ? state.base.subject.week : null,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onTopicSelect: lectureTopic => dispatch(selectTopic(lectureTopic)),
+  onTopicSelect: (lectureTopic: LectureTopic, subject: Subject) => dispatch(selectTopic(lectureTopic, subject)),
 });
 
 export default connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(Banner);

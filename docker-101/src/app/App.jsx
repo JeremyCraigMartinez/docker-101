@@ -9,6 +9,7 @@ import { // $FlowFixMe
 } from 'react-router-dom';
 
 import Header from './components/header';
+import Footer from './components/footer';
 import Services from './components/services';
 import Containers from './components/containers';
 import Images from './components/images';
@@ -30,5 +31,6 @@ export default () => (
         <Route path='/volume' component={Volume} />
       </Switch>
     </div>
+    <Footer />
   </Router>
 );

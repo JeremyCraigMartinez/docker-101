@@ -12,3 +12,9 @@ export const LectureTable = styled.table`
     * { margin-left: 25px; }
   }
 `;
+
+export const Footer = styled.div`
+  height: 200px;
+  background-color: #ddd;
+  margin-top: 50px;
+`;

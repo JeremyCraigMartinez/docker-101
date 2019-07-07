@@ -13,10 +13,10 @@ const Concepts = () => (
     <h1>Concepts</h1>
 
     <Switch>
-      <Route exact path='/docker-101/concepts/' component={Main} />
-      <Route path='/docker-101/concepts/lecture/pre' component={LecturePre} />
-      <Route path='/docker-101/concepts/lecture/post' component={LecturePost} />
-      <Route path='/docker-101/concepts/lecture' component={Lecture} />
+      <Route exact path='/concepts/' component={Main} />
+      <Route path='/concepts/lecture/pre' component={LecturePre} />
+      <Route path='/concepts/lecture/post' component={LecturePost} />
+      <Route path='/concepts/lecture' component={Lecture} />
     </Switch>
   </div>
 );

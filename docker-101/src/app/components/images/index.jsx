@@ -18,15 +18,15 @@ const Images = () => (
     <h1>Images</h1>
 
     <Switch>
-      <Route exact path='/docker-101/images/' component={Main} />
-      <Route path='/docker-101/images/lecture/pre' component={LecturePre} />
-      <Route path='/docker-101/images/lecture/post' component={LecturePost} />
-      <Route path='/docker-101/images/lecture' component={Lecture} />
-      <Route path='/docker-101/images/assignment/pre' component={AssignmentPre} />
-      <Route path='/docker-101/images/assignment/post' component={AssignmentPost} />
-      <Route path='/docker-101/images/assignment' component={Assignment} />
-      <Route path='/docker-101/images/feedback/pre' component={FeedbackPre} />
-      <Route path='/docker-101/images/feedback' component={Feedback} />
+      <Route exact path='/images/' component={Main} />
+      <Route path='/images/lecture/pre' component={LecturePre} />
+      <Route path='/images/lecture/post' component={LecturePost} />
+      <Route path='/images/lecture' component={Lecture} />
+      <Route path='/images/assignment/pre' component={AssignmentPre} />
+      <Route path='/images/assignment/post' component={AssignmentPost} />
+      <Route path='/images/assignment' component={Assignment} />
+      <Route path='/images/feedback/pre' component={FeedbackPre} />
+      <Route path='/images/feedback' component={Feedback} />
     </Switch>
   </div>
 );

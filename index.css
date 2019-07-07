@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  margin: 0 0 4em 0;
+  margin: 0 0 0 0;
 }
 
 #examples {
@@ -197,4 +197,36 @@ pre {
 .javascript .class,
 .javascript .special {
   color: #e6550d;
+}
+
+/* footer */
+#footer {
+  background: #ddd;
+  height: 200px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  border-top: solid 1px #fff;
+  margin: none
+}
+
+#footer:after,
+#footer:before {
+  content: "";
+  display: block;
+  width: 100%;
+  position: absolute;
+  background: white;
+  height: 16px;
+  z-index: 2;
+}
+
+#footer:before {
+  bottom: -16px;
+  box-shadow: 0px -8px 16px rgba(0,0,0,.3);
+}
+
+#footer:after {
+  top: -16px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,.3);
 }

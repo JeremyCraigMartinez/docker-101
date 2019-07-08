@@ -8,7 +8,7 @@ import main from './markdown';
 
 const Main = () => (
   <div>
-    <h3>{'Main > '}<Link to='./lecture/pre/'>Lecture Prep</Link></h3>
+    <h3>{'Overview > '}<Link to='./lecture/pre/'>Lecture Prep</Link></h3>
 
     <div dangerouslySetInnerHTML={md.render(main)} />
   </div>

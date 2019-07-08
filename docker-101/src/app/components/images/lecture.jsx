@@ -21,7 +21,7 @@ export const topics = [
 
 const Lecture = ({ week }: StateProps) => (
   <div>
-    <h3>{'Lecture > '}<Link to='./post/'>Lecture Recap</Link></h3>
+    <h3><Link to='./pre/'>Lecture Prep</Link>{' > Lecture > '}<Link to='./post/'>Lecture Recap</Link></h3>
 
     <LectureTable>
       <tbody>

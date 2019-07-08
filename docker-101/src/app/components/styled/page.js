@@ -18,3 +18,10 @@ export const Footer = styled.div`
   background-color: #ddd;
   margin-top: 50px;
 `;
+
+export const Questionnaire = styled.div`
+  textarea {
+    width: 80%;
+    height: 8em;
+  }
+`;

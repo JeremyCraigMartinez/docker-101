@@ -10,8 +10,6 @@ import LecturePost from '../general/lecture/post';
 
 const Concepts = () => (
   <div>
-    <h1>Concepts</h1>
-
     <Switch>
       <Route exact path='/concepts/' component={Main} />
       <Route path='/concepts/lecture/pre' component={LecturePre} />

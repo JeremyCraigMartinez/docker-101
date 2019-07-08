@@ -5,47 +5,29 @@ import { Link } from 'react-router-dom';
 
 import { LectureTable } from '../styled/page';
 
+export const topics = [
+  { title: 'A basic introduction to why we use containers', secondaryText: '. Don\'t worry if some of the container information is unclear, this lecture will be easier to grasp after images and containers have been covered at the end of week three.', video: 'https://www.youtube.com/embed/n-JwAM6XF88' },
+  { title: 'Further introduction', secondaryText: null, video: 'https://www.youtube.com/embed/ph1pJXdIk8o' },
+  { title: 'Deep dive: containers vs virtual machines', secondaryText: null, video: 'https://www.youtube.com/embed/L1ie8negCjc' },
+  { title: 'Deep dive: what is a container?', secondaryText: null, video: 'https://www.youtube.com/embed/EnJ7qX9fkcU' },
+  { title: 'Security', secondaryText: null, video: 'https://www.youtube.com/embed/5NWqLTj8zmE' },
+  { title: 'Docker Layers', secondaryText: null, video: 'https://www.youtube.com/embed/vboY6FTNRuk' },
+  { title: 'Case study: AWS ECS. This is an example of an existing production ready product to deploy containers on', secondaryText: null, video: 'https://www.youtube.com/embed/eq4wL2MiNqo' },
+];
+
 const Lecture = () => (
   <div>
     <h3>{'Lecture > '}<Link to='./post/'>Lecture Recap</Link></h3>
 
     <LectureTable>
       <tbody>
-        <tr>
-          <td>A basic introduction to why we use containers</td>
-          <td><iframe title='why containers' width='560' height='315' src='https://www.youtube.com/embed/n-JwAM6XF88' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Further introduction</td>
-          <td><iframe title='intro' width='560' height='315' src='https://www.youtube.com/embed/ph1pJXdIk8o' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Deep dive: containers vs virtual machines</td>
-          <td><iframe title='containers vs machines' width='560' height='315' src='https://www.youtube.com/embed/L1ie8negCjc' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Deep dive: what is a container?</td>
-          <td><iframe title='what is a container' width='560' height='315' src='https://www.youtube.com/embed/EnJ7qX9fkcU' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Security</td>
-          <td><iframe title='security' width='560' height='315' src='https://www.youtube.com/embed/5NWqLTj8zmE' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Docker Layers</td>
-          <td><iframe title='security' width='560' height='315' src='https://www.youtube.com/embed/vboY6FTNRuk' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
-        <tr>
-          <td>Case study: AWS ECS. This is an example of an existing production ready product to deploy containers on</td>
-          <td><iframe title='AWS ECS' width='560' height='315' src='https://www.youtube.com/embed/eq4wL2MiNqo' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
+        {topics.map(({ title, video, secondaryText }) => (
+          <tr key={title}>
+            <td>{title}{secondaryText != null ? secondaryText : ''}</td>
+            <td><iframe title={title} width='560' height='315' src={video} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+            <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+          </tr>
+        ))}
       </tbody>
     </LectureTable>
     <h2>Resources</h2>

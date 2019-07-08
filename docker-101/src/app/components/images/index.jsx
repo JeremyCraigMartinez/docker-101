@@ -15,8 +15,6 @@ import LecturePost from '../general/lecture/post';
 
 const Images = () => (
   <div>
-    <h1>Images</h1>
-
     <Switch>
       <Route exact path='/images/' component={Main} />
       <Route path='/images/lecture/pre' component={LecturePre} />

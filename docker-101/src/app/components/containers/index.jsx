@@ -15,8 +15,6 @@ import LecturePost from '../general/lecture/post';
 
 const Containers = () => (
   <div>
-    <h1>Containers</h1>
-
     <Switch>
       <Route exact path='/containers/' component={Main} />
       <Route path='/containers/lecture/pre' component={LecturePre} />

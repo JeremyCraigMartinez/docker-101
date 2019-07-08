@@ -1,22 +1,77 @@
 // @flow strict
 
 import React from 'react'; // $FlowFixMe
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // $FlowFixMe
+import { connect } from 'react-redux';
 
+import type { State } from '../../reducers/types/reducer-states';
 import { LectureTable } from '../styled/page';
 
-const Lecture = () => (
+type StateProps = { week: number | null };
+
+const Lecture = ({ week }: StateProps) => (
   <div>
     <h3>{'Lecture > '}<Link to='./post/'>Lecture Recap</Link></h3>
 
     <LectureTable>
       <tbody>
+        {(week === 2 || week == null) && <tr>
+          <td>Install docker on your machine</td>
+          <td>
+            <iframe title='mac' width='560' height='315' src='https://www.youtube.com/embed/MU8HUVlJTEY' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
+            <iframe title='window' width='560' height='315' src='https://www.youtube.com/embed/ymlWt1MqURY' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
+            <iframe title='linux' width='560' height='315' src='https://www.youtube.com/embed/KCckWweNSrM' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
+          </td>
+        </tr>}
+        <tr>
+          <td>{'Images vs Containers. Don\'t worry if some of the container information is unclear, this lecture will be easier to grasp after images and containers have been covered at the end of week three.'}</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/j4vk3HP_vow' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Executing container commands</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/cS0PeVV_QNI' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Container names and tips</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/pr8jZBmcF18' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Container users</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/qUYSX7AyxQk' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Copying files from a container</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/7tGcnOvRQ9o' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Exposing container ports</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/G36I1iqDZig' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>Container hostnames</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/0Li9kzb_cJk' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
       </tbody>
     </LectureTable>
     <h2>Resources</h2>
     <ul>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.docker.com/v17.09/engine/userguide/storagedriver/imagesandcontainers/#container-and-layers'>Docker documentation - container-and-layers</a></li>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.docker.com/engine/reference/commandline/docker/'>https://docs.docker.com/engine/reference/commandline/docker/</a></li>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.docker.com/engine/reference/commandline/ps/'>https://docs.docker.com/engine/reference/commandline/ps/</a></li>
+      <li><a target='_blank' rel='noopener noreferrer' href='https://docs.docker.com/engine/reference/commandline/run/'>https://docs.docker.com/engine/reference/commandline/run/</a></li>
     </ul>
   </div>
 );
 
-export default Lecture;
+const mapStateToProps = (state: State): StateProps => ({
+  week: state.base.subject != null ? state.base.subject.week : null,
+});
+
+export default connect<StateProps, {||}, StateProps, {||}, _, _>(mapStateToProps)(Lecture);

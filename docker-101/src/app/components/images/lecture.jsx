@@ -1,27 +1,36 @@
 // @flow strict
 
 import React from 'react'; // $FlowFixMe
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // $FlowFixMe
+import { connect } from 'react-redux';
 
+import type { State } from '../../reducers/types/reducer-states';
 import { LectureTable } from '../styled/page';
 
-const Lecture = () => (
+type StateProps = { week: number | null };
+
+const Lecture = ({ week }: StateProps) => (
   <div>
     <h3>{'Lecture > '}<Link to='./post/'>Lecture Recap</Link></h3>
 
     <LectureTable>
       <tbody>
-        <tr>
+        {(week === 2 || week == null) && <tr>
           <td>Install docker on your machine</td>
           <td>
             <iframe title='mac' width='560' height='315' src='https://www.youtube.com/embed/MU8HUVlJTEY' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
             <iframe title='window' width='560' height='315' src='https://www.youtube.com/embed/ymlWt1MqURY' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
             <iframe title='linux' width='560' height='315' src='https://www.youtube.com/embed/KCckWweNSrM' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
           </td>
-        </tr>
+        </tr>}
         <tr>
           <td>Introduction</td>
           <td><iframe title='intro' width='560' height='315' src='https://www.youtube.com/embed/hS9bgjrAsBs' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
+        </tr>
+        <tr>
+          <td>{'Images vs Containers. Don\'t worry if some of the container information is unclear, this lecture will be easier to grasp after images and containers have been covered at the end of week three.'}</td>
+          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/j4vk3HP_vow' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
           <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
         </tr>
         <tr>
@@ -49,11 +58,6 @@ const Lecture = () => (
           <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/LQjaJINkQXY' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
           <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
         </tr>
-        <tr>
-          <td>{'Images vs Containers. Don\'t worry if some of the container information is unclear, this lecture will be easier to grasp after images and containers have been covered at the end of week three.'}</td>
-          <td><iframe title='dockerfile extended' width='560' height='315' src='https://www.youtube.com/embed/j4vk3HP_vow' frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
-          <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
-        </tr>
       </tbody>
     </LectureTable>
     <h2>Resources</h2>
@@ -67,4 +71,8 @@ const Lecture = () => (
   </div>
 );
 
-export default Lecture;
+const mapStateToProps = (state: State): StateProps => ({
+  week: state.base.subject != null ? state.base.subject.week : null,
+});
+
+export default connect<StateProps, {||}, StateProps, {||}, _, _>(mapStateToProps)(Lecture);

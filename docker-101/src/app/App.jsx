@@ -10,6 +10,7 @@ import { // $FlowFixMe
 
 import Header from './components/header';
 import Footer from './components/footer';
+import Course from './components/course';
 import Services from './components/services';
 import Containers from './components/containers';
 import Images from './components/images';
@@ -29,6 +30,7 @@ export default () => (
         <Route path='/concepts' component={Concepts} />
         <Route path='/network' component={Network} />
         <Route path='/volume' component={Volume} />
+        <Route path='/' component={Course} />
       </Switch>
     </div>
     <Footer />

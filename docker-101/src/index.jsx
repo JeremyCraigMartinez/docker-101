@@ -4,10 +4,16 @@ import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 
 import App from './app/App';
-import { configureStore } from './app/reducers';
+import { configureStore, saveState } from './app/reducers';
+
+const store = configureStore();
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root'),

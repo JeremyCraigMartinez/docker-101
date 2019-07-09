@@ -21,7 +21,28 @@ export const defaultState = {
 
 export type Reducers = typeof reducers;
 
-export function configureStore(initialState: State = defaultState) { // $FlowFixMe
+export function saveState(state: State) {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state', serializedState);
+  } catch {
+    // ignore write errors
+  }
+}
+
+export function loadState(): State {
+  const state = defaultState;
+  try {
+    const storedState = localStorage.getItem('state');
+    if (storedState == null) return state;
+    const serializedState = JSON.parse(storedState);
+    return serializedState;
+  } catch {
+    return state;
+  }
+}
+
+export function configureStore(initialState: State = loadState()) { // $FlowFixMe
   return createStore(
     reducers,
     initialState,

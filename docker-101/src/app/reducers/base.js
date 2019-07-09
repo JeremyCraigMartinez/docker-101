@@ -23,7 +23,7 @@ export default (state: BaseState = defaultState, action: Action) => {
       return {
         ...state,
         topic: action.topic,
-        subject: action.subject,
+        subject: action.subject || state.subject,
       };
     default:
       return state;

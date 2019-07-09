@@ -1,11 +1,33 @@
 // @flow strict
 
-import React from 'react';
+import React, { Component } from 'react'; // $FlowFixMe
+import { Switch } from 'react-router-dom'; // $FlowFixMe
+import { connect } from 'react-redux';
 
-const Network = () => (
-  <div>
-    <h1>Network</h1>
-  </div>
-);
+import { selectTopic } from '../../actions/base';
+import type { Dispatch } from '../../actions/types';
 
-export default Network;
+type DispatchProps = {
+  onSelectTopic: () => void,
+};
+
+class Network extends Component<DispatchProps> {
+  componentDidMount() {
+    const { onSelectTopic } = this.props;
+    onSelectTopic();
+  }
+
+  render() {
+    return (
+      <div>
+        <Switch />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  onSelectTopic: () => dispatch(selectTopic('network')),
+});
+
+export default connect<{||}, {||}, {||}, {||}, _, _>(null, mapDispatchToProps)(Network);

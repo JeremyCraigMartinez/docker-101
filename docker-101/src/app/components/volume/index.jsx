@@ -1,11 +1,33 @@
 // @flow strict
 
-import React from 'react';
+import React, { Component } from 'react'; // $FlowFixMe
+import { Switch } from 'react-router-dom'; // $FlowFixMe
+import { connect } from 'react-redux';
 
-const volume = () => (
-  <div>
-    <h1>Volume</h1>
-  </div>
-);
+import { selectTopic } from '../../actions/base';
+import type { Dispatch } from '../../actions/types';
 
-export default volume;
+type DispatchProps = {
+  onSelectTopic: () => void,
+};
+
+class Volume extends Component<DispatchProps> {
+  componentDidMount() {
+    const { onSelectTopic } = this.props;
+    onSelectTopic();
+  }
+
+  render() {
+    return (
+      <div>
+        <Switch />
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  onSelectTopic: () => dispatch(selectTopic('volume')),
+});
+
+export default connect<{||}, {||}, {||}, {||}, _, _>(null, mapDispatchToProps)(Volume);

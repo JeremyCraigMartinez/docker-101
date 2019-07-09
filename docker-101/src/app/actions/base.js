@@ -18,10 +18,10 @@ export const simpleAction = () => (dispatch: Dispatch) => (
 export type SelectTopic = {
   type: 'SELECT_TOPIC',
   topic: LectureTopic,
-  subject: Subject,
+  subject?: Subject,
 };
 
-export const selectTopic = (topic: LectureTopic, subject: Subject) => (dispatch: Dispatch) => (
+export const selectTopic = (topic: LectureTopic, subject?: Subject) => (dispatch: Dispatch) => (
   dispatch({
     type: 'SELECT_TOPIC',
     topic,

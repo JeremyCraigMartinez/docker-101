@@ -7,7 +7,9 @@ import { connect } from 'react-redux';
 import Main from './main';
 import AssignmentPre from '../general/assignments/pre';
 import AssignmentPost from '../general/assignments/post';
+import Assignment from './assignment';
 import FeedbackPre from '../general/feedback/pre';
+import Feedback from './feedback';
 import LecturePre from '../general/lecture/pre';
 import Lecture from './lecture';
 import LecturePost from '../general/lecture/post';
@@ -34,7 +36,9 @@ class Volume extends Component<DispatchProps> {
           <Route path='/volume/lecture' component={Lecture} />
           <Route path='/volume/assignment/pre' component={AssignmentPre} />
           <Route path='/volume/assignment/post' component={AssignmentPost} />
+          <Route path='/volume/assignment' component={Assignment} />
           <Route path='/volume/feedback/pre' component={FeedbackPre} />
+          <Route path='/volume/feedback' component={Feedback} />
         </Switch>
       </div>
     );

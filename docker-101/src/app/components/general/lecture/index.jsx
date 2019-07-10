@@ -8,7 +8,7 @@ import { LectureTable } from '../../styled/page';
 type Props = {
   topics: Array<{
     title: string,
-    video: string,
+    video: string | null,
     secondaryText: string | null,
     resource: {
       link: string,
@@ -23,10 +23,13 @@ const Lecture = ({ topics }: Props) => (
 
     <LectureTable>
       <tbody>
-        {topics.map(({ title, video, secondaryText }) => (
+        {topics.map(({ title, video, secondaryText, resource }) => (
           <tr key={title}>
             <td>{title}{secondaryText != null ? secondaryText : ''}</td>
-            <td><iframe title={title} width='560' height='315' src={`https://www.youtube.com/embed/${video}`} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen /></td>
+            <td>{video != null
+              ? <iframe title={title} width='560' height='315' src={`https://www.youtube.com/embed/${video}`} frameBorder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
+              : <p>{resource && <a href={resource.link} target='_blank' rel='noopener noreferrer'>{resource.link}</a>}</p>
+            }</td>
             <td><p>Notes:</p><textarea name='' id='' cols='30' rows='10' /><button type='submit'>Save</button></td>
           </tr>
         ))}

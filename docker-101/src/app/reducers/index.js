@@ -6,17 +6,20 @@ import { createLogger } from 'redux-logger';
 import type { Reducer } from 'redux';
 
 import base, { defaultState as baseDefaultState } from './base';
+import inputs, { defaultState as inputsDefaultState } from './inputs';
 import type { State } from './types/reducer-states';
 import type { Action } from '../actions/types';
 
 const reducers: Reducer<State, Action> = combineReducers({
   base,
+  inputs,
 });
 
 export default reducers;
 
 export const defaultState = {
   base: baseDefaultState,
+  inputs: inputsDefaultState,
 };
 
 export type Reducers = typeof reducers;

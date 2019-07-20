@@ -4,10 +4,13 @@ import type { State } from '../../reducers/types/reducer-states';
 
 // Actions
 import type { SimpleAction, SelectTopic } from '../base';
+import type { ReceiveLectureInput, ReceiveCourseInput } from '../inputs';
 
 export type Action =
   SimpleAction |
-  SelectTopic;
+  SelectTopic |
+  ReceiveLectureInput |
+  ReceiveCourseInput;
 
 export type GetState = () => State;
 export type Actions = Action | ThunkAction | Promise<Action> | Array<Action> | Array<Promise<Action>>; // eslint-disable-line no-use-before-define

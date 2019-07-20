@@ -31,6 +31,8 @@
         "react/jsx-wrap-multilines": "off",
         "react/jsx-closing-tag-location": "off",
         "react/no-danger": "off",
-        "object-curly-newline": "off"
+        "object-curly-newline": "off",
+        "one-var-declaration-per-line": "off",
+        "one-var": "off"
     }
 }

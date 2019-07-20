@@ -1,7 +1,10 @@
 // @flow strict
 
-const markdown = `## Assignment description
-<description here>
+const containersOnlyAssignment = 'Containers only assignment';
+const containerAndImagesAssignment = 'Container vs images assignment';
+
+const markdown = (week: number | null) => `## Assignment description
+${week === 3 ? containerAndImagesAssignment : containersOnlyAssignment}
 
 ## Submission instructions
 Compress all of the files for this assignment (zip/tar) into one file. For a coding assignment, this only includes the source code written by you. Do not include dependencies like binaries or source code install via a package manager (npm/pip/etc.). Name this file LASTNAME_FIRSTNAME_ASSIGNMENT1.{extension}.

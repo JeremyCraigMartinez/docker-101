@@ -50,7 +50,7 @@ const LecturePost = ({ hasAssignment, lectureTopic, inputs, onReceiveInput }: Pr
 };
 
 const mapStateToProps = (state: State): StateProps => ({
-  hasAssignment: state.base.subject != null && state.base.subject.week % 2 === 0,
+  hasAssignment: state.base.subject != null && state.base.subject.week !== 1,
   lectureTopic: state.base.topic,
   inputs: state.inputs[state.base.topic] && state.inputs[state.base.topic].lecturePost,
 });

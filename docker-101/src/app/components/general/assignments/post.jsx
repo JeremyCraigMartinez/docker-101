@@ -29,7 +29,7 @@ const AssignmentPost = ({ lectureTopic, inputs, onReceiveInput }: Props) => {
 
   return (
     <div>
-      <h3><Link to='../../'>Overview</Link>{' > Lecture Prep > '}<Link to='../'>Lecture</Link></h3>
+      <h3><Link to='../'>Assignment</Link>{' > Assignment Recap > '}<Link to='../../feedback/pre/'>Feedback Prep</Link></h3>
 
       <Questionnaire>
         <p>To what extent did I successfully accomplish the goals of the task?</p>

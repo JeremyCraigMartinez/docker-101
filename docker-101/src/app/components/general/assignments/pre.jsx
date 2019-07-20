@@ -29,7 +29,7 @@ const AssignmentPre = ({ lectureTopic, inputs, onReceiveInput }: Props) => {
 
   return (
     <div>
-      <h3><Link to='../../'>Overview</Link>{' > Lecture Prep > '}<Link to='../'>Lecture</Link></h3>
+      <h3><Link to='../../lecture/post/'>Lecture Recap</Link>{' > Assignment Prep > '}<Link to='../'>Assignment</Link></h3>
 
       <Questionnaire>
         <p>What is the instructor’s goal in having me do this task?</p>

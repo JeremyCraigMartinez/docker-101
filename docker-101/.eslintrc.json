@@ -33,6 +33,10 @@
         "react/no-danger": "off",
         "object-curly-newline": "off",
         "one-var-declaration-per-line": "off",
-        "one-var": "off"
+        "one-var": "off",
+        "react/destructuring-assignment": "off",
+        "react/no-this-in-sfc": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "jsx-a11y/label-has-for": "off"
     }
 }

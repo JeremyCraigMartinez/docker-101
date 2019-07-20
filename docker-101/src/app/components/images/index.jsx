@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom'; // $FlowFixMe
 import { connect } from 'react-redux';
 
 import Main from './main';
-import Assignment from './assignment';
+import Assignment from '../general/assignments';
 import Feedback from './feedback';
 import Lecture from './lecture';
 import AssignmentPre from '../general/assignments/pre';

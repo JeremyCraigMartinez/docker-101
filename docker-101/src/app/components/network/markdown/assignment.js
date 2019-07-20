@@ -1,6 +1,6 @@
 // @flow strict
 
-const markdown = `## Assignment description
+const markdown = () => `## Assignment description
 <description here>
 
 ## Submission instructions

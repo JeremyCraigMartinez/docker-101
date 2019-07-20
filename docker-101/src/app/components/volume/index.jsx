@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import Main from './main';
 import AssignmentPre from '../general/assignments/pre';
 import AssignmentPost from '../general/assignments/post';
-import Assignment from './assignment';
+import Assignment from '../general/assignments';
 import FeedbackPre from '../general/feedback/pre';
 import Feedback from './feedback';
 import LecturePre from '../general/lecture/pre';

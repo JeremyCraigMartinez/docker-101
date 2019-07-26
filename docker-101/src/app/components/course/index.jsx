@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 
 import Main from './main';
 import Prep from './prep-questionnaire';
+import Post from './post-questionnaire';
+import FirstThird from './first-third-questionnaire';
+import SecondThird from './second-third-questionnaire';
 import { selectTopic } from '../../actions/base';
 import type { Dispatch } from '../../actions/types';
 
@@ -24,6 +27,9 @@ class Images extends React.Component<DispatchProps> {
       <div>
         <Switch>
           <Route path='/pre' component={Prep} />
+          <Route path='/first-third' component={FirstThird} />
+          <Route path='/second-third' component={SecondThird} />
+          <Route path='/post' component={Post} />
           <Route path='/' component={Main} />
         </Switch>
       </div>

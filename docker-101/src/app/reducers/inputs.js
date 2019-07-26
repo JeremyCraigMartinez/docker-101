@@ -10,7 +10,10 @@ const defaultLectureInput = () => ({
   assignmentPost: [],
 });
 export const defaultState = {
-  course: [[], [], [], []],
+  coursePre: [],
+  courseFirstThird: [],
+  courseSecondThird: [],
+  coursePost: [],
   concepts: defaultLectureInput(),
   containers: defaultLectureInput(),
   images: defaultLectureInput(),
@@ -32,7 +35,7 @@ export default (state: InputState = defaultState, action: Action) => {
     case 'RECEIVE_COURSE_INPUT':
       return {
         ...state,
-        course: action.inputs,
+        [action.inputType]: action.inputs,
       };
     default:
       return state;

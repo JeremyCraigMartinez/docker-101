@@ -10,12 +10,10 @@ export type BaseState = {|
 |};
 
 export type InputState = {
-  course: [
-    Array<string>, // before course
-    Array<string>, // one-third course recap
-    Array<string>, // two-third course recap
-    Array<string>, // end of course recap
-  ],
+  coursePre: Array<string>,
+  courseFirstThird: Array<string>,
+  courseSecondThird: Array<string>,
+  coursePost: Array<string>,
   [LectureTopic]: {
     [InputType]: Array<string>,
   }

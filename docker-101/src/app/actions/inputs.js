@@ -1,6 +1,6 @@
 // @flow strict
 
-import type { LectureTopic, InputType } from '../reducers/types';
+import type { LectureTopic, CourseInputType, InputType } from '../reducers/types';
 import type { Dispatch } from './types';
 
 export type ReceiveLectureInput = {
@@ -22,12 +22,14 @@ export const receiveLectureInput = (inputs: Array<string>, which: LectureTopic, 
 export type ReceiveCourseInput = {
   type: 'RECEIVE_COURSE_INPUT',
   inputs: Array<string>,
+  inputType: CourseInputType,
 };
 
-export const receiveCourseInput = (inputs: Array<string>) => (dispatch: Dispatch) => (
+export const receiveCourseInput = (inputs: Array<string>, inputType: CourseInputType) => (dispatch: Dispatch) => (
   dispatch({
     type: 'RECEIVE_COURSE_INPUT',
     inputs,
+    inputType,
   })
 );
 
@@ -39,10 +41,7 @@ export type ReceiveInput = {
 
 export const receiveInput = (inputs: Array<string>, which?: LectureTopic, inputType?: InputType) => (dispatch: Dispatch) => (
   (which == null || inputType == null)
-    ? dispatch({
-      type: 'RECEIVE_COURSE_INPUT',
-      inputs,
-    })
+    ? null
     : dispatch({
       type: 'RECEIVE_LECTURE_INPUT',
       which,

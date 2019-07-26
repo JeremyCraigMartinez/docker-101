@@ -14,7 +14,7 @@ type StateProps = {|
   topic: LectureTopic,
 |};
 
-const nextTopicLastHalf = {
+export const nextTopicLastHalf = {
   concepts: null,
   containers: null,
   images: null,
@@ -24,11 +24,11 @@ const nextTopicLastHalf = {
 };
 
 const nextOptions = (topic: LectureTopic) => ({
-  '2': <Fragment>{' > '}<Link to={topic === 'containers' ? '../../images/' : '../../containers/'}>{topic === 'containers' ? 'Images' : 'Containers'}</Link></Fragment>,
+  '2': <Fragment>{' > '}<Link to='../../first-third/'>First-third course evaluation</Link></Fragment>,
   '3': <Fragment>{' > What next... '}<Link to='../../volume/'>Volumes</Link>{'? '}<Link to='../../network/'>Networks</Link>{'? '}<Link to='../../services/'>Services</Link>{'?'}</Fragment>,
-  '4': topic != null ? nextTopicLastHalf[topic] : null,
+  '4': <Fragment>{' > '}<Link to='../../second-third/'>Second-third course evaluation</Link></Fragment>,
   '5': topic != null ? nextTopicLastHalf[topic] : null,
-  '6': <Fragment>{}</Fragment>,
+  '6': <Fragment>{' > '}<Link to='../../post/'>Post-course evaluation</Link></Fragment>,
 
   default: null,
 });

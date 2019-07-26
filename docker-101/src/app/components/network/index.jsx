@@ -9,21 +9,31 @@ import AssignmentPre from '../general/assignments/pre';
 import AssignmentPost from '../general/assignments/post';
 import Assignment from '../general/assignments';
 import FeedbackPre from '../general/feedback/pre';
-import Feedback from './feedback';
+import Feedback from '../general/feedback';
 import LecturePre from '../general/lecture/pre';
 import Lecture from './lecture';
 import LecturePost from '../general/lecture/post';
 import { selectTopic } from '../../actions/base';
 import type { Dispatch } from '../../actions/types';
+import type { State } from '../../reducers/types/reducer-states';
+import type { LectureTopic } from '../../reducers/types';
 
-type DispatchProps = {
-  onSelectTopic: () => void,
-};
+type StateProps = {|
+  week: number,
+  topic: LectureTopic,
+  subpath: number,
+|};
 
-class Network extends Component<DispatchProps> {
+type DispatchProps = {|
+  onSelectTopic: (number, number) => void,
+|};
+
+type Props = StateProps & DispatchProps;
+
+class Network extends Component<Props> {
   componentDidMount() {
-    const { onSelectTopic } = this.props;
-    onSelectTopic();
+    const { onSelectTopic, week, topic, subpath } = this.props;
+    if (topic !== 'network') onSelectTopic(week + 1, subpath);
   }
 
   render() {
@@ -45,8 +55,14 @@ class Network extends Component<DispatchProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onSelectTopic: () => dispatch(selectTopic('network')),
+const mapStateToProps = (state: State): StateProps => ({
+  week: state.base.subject ? state.base.subject.week : 4,
+  subpath: state.base.subject && state.base.subject.subpath ? state.base.subject.subpath : 1,
+  topic: state.base.topic,
 });
 
-export default connect<{||}, {||}, {||}, {||}, _, _>(null, mapDispatchToProps)(Network);
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  onSelectTopic: (week, subPath) => dispatch(selectTopic('network', { week, subPath })),
+});
+
+export default connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(Network);

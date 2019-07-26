@@ -1,6 +1,8 @@
 // @flow strict
 
-import React from 'react'; // $FlowFixMe
+/* eslint-disable quote-props */
+
+import React, { Fragment } from 'react'; // $FlowFixMe
 import { Link } from 'react-router-dom'; // $FlowFixMe
 import { connect } from 'react-redux';
 
@@ -14,6 +16,7 @@ type StateProps = {
   hasAssignment: boolean,
   lectureTopic: LectureTopic,
   inputs: Array<string>,
+  subject: number | 'default',
 };
 
 type DispatchProps = {
@@ -22,7 +25,12 @@ type DispatchProps = {
 
 type Props = StateProps & DispatchProps;
 
-const LecturePost = ({ hasAssignment, lectureTopic, inputs, onReceiveInput }: Props) => {
+const weekOptions = {
+  '1': <Fragment>{' > What next... '}<Link to='../../../images/'>Images</Link>{'? '}<Link to='../../../containers/'>Containers</Link>{'?'}</Fragment>,
+  default: null,
+};
+
+const LecturePost = ({ hasAssignment, lectureTopic, inputs, onReceiveInput, subject }: Props) => {
   let one, two, three, four;
   if (inputs != null) {
     ([one, two, three, four] = inputs);
@@ -32,7 +40,7 @@ const LecturePost = ({ hasAssignment, lectureTopic, inputs, onReceiveInput }: Pr
     <div>
       {hasAssignment
         ? <h3><Link to='../'>Lecture</Link>{' > Lecture Recap > '}<Link to='../../assignment/pre/'>Assignment Prep</Link></h3>
-        : <h3><Link to='../'>Lecture</Link>{' > Lecture Recap'}</h3>
+        : <h3><Link to='../'>Lecture</Link>{' > Lecture Recap'}{weekOptions[subject]}</h3>
       }
       <Questionnaire>
         <p>What did I hear today that is in conflict with my prior understanding?</p>
@@ -52,6 +60,7 @@ const LecturePost = ({ hasAssignment, lectureTopic, inputs, onReceiveInput }: Pr
 const mapStateToProps = (state: State): StateProps => ({
   hasAssignment: state.base.subject != null && state.base.subject.week !== 1,
   lectureTopic: state.base.topic,
+  subject: state.base.subject ? state.base.subject.week : 'default',
   inputs: state.inputs[state.base.topic] && state.inputs[state.base.topic].lecturePost,
 });
 

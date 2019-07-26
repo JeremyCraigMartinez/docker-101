@@ -1,17 +1,27 @@
 // @flow strict
 
 import React from 'react'; // $FlowFixMe
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // $FlowFixMe
+import { connect } from 'react-redux';
 
 import md from '../../helpers/markdown';
 import main from './markdown';
+import type { State } from '../../reducers/types/reducer-states';
 
-const Main = () => (
+type StateProps = {
+  week: number,
+};
+
+const Main = ({ week }: StateProps) => (
   <div>
-    <h3>{'Overview > '}<Link to='./lecture/pre/'>Lecture Prep</Link></h3>
+    <h3><Link to={week === 2 ? '../concepts/lecture/post/' : '../containers/feedback/'}>{week === 2 ? 'Concepts' : 'Containers'}</Link>{' > Main > '}<Link to='./lecture/pre/'>Lecture Prep</Link></h3>
 
     <div dangerouslySetInnerHTML={md.render(main)} />
   </div>
 );
 
-export default Main;
+const mapStateToProps = (state: State): StateProps => ({
+  week: state.base.subject ? state.base.subject.week : 2,
+});
+
+export default connect<StateProps, {||}, StateProps, {||}, _, _>(mapStateToProps)(Main);

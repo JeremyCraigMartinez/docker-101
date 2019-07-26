@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import Main from './main';
 import Assignment from '../general/assignments';
-import Feedback from './feedback';
+import Feedback from '../general/feedback';
 import Lecture from './lecture';
 import AssignmentPre from '../general/assignments/pre';
 import AssignmentPost from '../general/assignments/post';
@@ -15,15 +15,27 @@ import LecturePre from '../general/lecture/pre';
 import LecturePost from '../general/lecture/post';
 import { selectTopic } from '../../actions/base';
 import type { Dispatch } from '../../actions/types';
+import type { State } from '../../reducers/types/reducer-states';
+import type { LectureTopic } from '../../reducers/types';
 
-type DispatchProps = {
-  onSelectTopic: () => void,
-};
+type StateProps = {|
+  week: number,
+  topic: LectureTopic,
+|};
 
-class Containers extends Component<DispatchProps> {
+type DispatchProps = {|
+  onSelectTopic: (number, number) => void,
+|};
+
+type Props = StateProps & DispatchProps;
+
+class Containers extends Component<Props> {
   componentDidMount() {
-    const { onSelectTopic } = this.props;
-    onSelectTopic();
+    const { onSelectTopic, week, topic } = this.props;
+    if (topic !== 'containers') {
+      if (week === 1 || week === 3) onSelectTopic(2, 1);
+      else onSelectTopic(3, 2);
+    }
   }
 
   render() {
@@ -45,8 +57,13 @@ class Containers extends Component<DispatchProps> {
   }
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onSelectTopic: () => dispatch(selectTopic('containers')),
+const mapStateToProps = (state: State): StateProps => ({
+  week: state.base.subject ? state.base.subject.week : 1,
+  topic: state.base.topic,
 });
 
-export default connect<{||}, {||}, {||}, {||}, _, _>(null, mapDispatchToProps)(Containers);
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
+  onSelectTopic: (week, subPath) => dispatch(selectTopic('containers', { week, subPath })),
+});
+
+export default connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(Containers);

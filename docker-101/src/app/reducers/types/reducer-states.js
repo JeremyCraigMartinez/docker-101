@@ -7,6 +7,7 @@ export type BaseState = {|
   path: 'autonomy' | 'traditional',
   topic: LectureTopic,
   subject: Subject | null,
+  visited: Array<LectureTopic>,
 |};
 
 export type InputState = {

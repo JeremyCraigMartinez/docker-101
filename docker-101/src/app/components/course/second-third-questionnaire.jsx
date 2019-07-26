@@ -30,7 +30,7 @@ const SecondThirdQuestionnaire = ({ inputs, topic, onReceiveInput, history }: Pr
 
   return (
     <div>
-      <h3>{topic != null && <Fragment><Link onClick={() => history.goBack()}>{`${topic.charAt(0).toUpperCase()}${topic.slice(1)}`}</Link>{' > '}</Fragment>}{'Second-third Questionnaire'}{topic != null ? nextTopicLastHalf[topic] : null}</h3>
+      <h3>{topic != null && <Fragment><Link onClick={() => history.goBack()}>{`${topic.charAt(0).toUpperCase()}${topic.slice(1)}`}</Link>{' > '}</Fragment>}{'Second-third Questionnaire'}{topic != null ? nextTopicLastHalf[topic]([]) : null}</h3>
 
       <Questionnaire>
         <p>What will I still remember 5 year from now that I learned in this course?</p>

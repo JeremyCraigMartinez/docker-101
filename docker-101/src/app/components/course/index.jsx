@@ -4,6 +4,7 @@ import React from 'react'; // $FlowFixMe
 import { Switch, Route } from 'react-router-dom';
 
 import Main from './main';
+import End from './end';
 import Prep from './prep-questionnaire';
 import Post from './post-questionnaire';
 import FirstThird from './first-third-questionnaire';
@@ -16,6 +17,7 @@ const Course = () => (
       <Route path='/first-third' component={FirstThird} />
       <Route path='/second-third' component={SecondThird} />
       <Route path='/post' component={Post} />
+      <Route path='/end' component={End} />
       <Route path='/' component={Main} />
     </Switch>
   </div>

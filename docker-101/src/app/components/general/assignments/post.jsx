@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'; // $FlowFixMe
 import { connect } from 'react-redux';
 
 import { Questionnaire } from '../../styled/page';
-import { receiveInput } from '../../../actions/inputs';
+import { receiveLectureInput } from '../../../actions/inputs';
 import type { State } from '../../../reducers/types/reducer-states';
 import type { LectureTopic } from '../../../reducers/types';
 import type { Dispatch } from '../../../actions/types';
@@ -16,7 +16,7 @@ type StateProps = {
 };
 
 type DispatchProps = {
- onReceiveInput: (inputs: Array<string>, which?: LectureTopic) => void,
+ onReceiveInput: (inputs: Array<string>, which: LectureTopic) => void,
 };
 
 type Props = StateProps & DispatchProps;
@@ -52,7 +52,7 @@ const mapStateToProps = (state: State): StateProps => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onReceiveInput: (inputs: Array<string>, which?: LectureTopic) => dispatch(receiveInput(inputs, which, 'assignmentPost')),
+  onReceiveInput: (inputs: Array<string>, which: LectureTopic) => dispatch(receiveLectureInput(inputs, which, 'assignmentPost')),
 });
 
 export default connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(AssignmentPost);

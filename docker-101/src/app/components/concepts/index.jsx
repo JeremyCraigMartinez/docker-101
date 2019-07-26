@@ -36,7 +36,7 @@ class Concepts extends Component<DispatchProps> {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  onSelectTopic: () => dispatch(selectTopic('concepts')),
+  onSelectTopic: () => dispatch(selectTopic('concepts', { week: 1 })),
 });
 
 export default connect<{||}, {||}, {||}, {||}, _, _>(null, mapDispatchToProps)(Concepts);

@@ -10,7 +10,7 @@ Royce Sadler identifies three prerequisites for students to benefit from peer fe
 
 From this, Sadler points out that for students to be able to gauge current performance against good performance (ii), and act on that knowledge to close the gap (iii), students must “already possess some of the same evaluative skills as their teacher” (Sadler, 1989).
 
-In this course, we want to opt for full transparency so that a student can understand exactly what is required for each assignment, what key performance indicators (KPI) of learning looks like, how the assignment will be graded, what a good submission looks like, and what poor submissions look like. __Much of this was outlined in the assignment description, however, if any of this is still unclear, please consult the [Q & A board](/#/qa).__
+In this course, we want to opt for full transparency so that a student can understand exactly what is required for each assignment, what key performance indicators (KPI) of learning looks like, how the assignment will be graded, what a good submission looks like, and what poor submissions look like. __Much of this was outlined in the assignment description, however, if any of this is still unclear, please consult the [Q & A board](/docker-101/#/qa).__
 
 ## Good peer feedback...
 

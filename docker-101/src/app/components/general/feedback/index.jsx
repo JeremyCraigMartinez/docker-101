@@ -35,7 +35,7 @@ const nextOptions = (topic: LectureTopic, visited: Array<LectureTopic>) => ({
 });
 
 const Feedback = ({ week, topic, visited }: StateProps) => {
-  const option = nextOptions(topic, visited)[week];
+  const option = nextOptions(topic, visited)[week] || nextOptions(topic, visited)[6];
   return (
     <div>
       <h3><Link to='./pre/'>Feedback Prep</Link>{' > Feedback'}{option}</h3>

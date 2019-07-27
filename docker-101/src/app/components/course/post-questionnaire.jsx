@@ -1,25 +1,27 @@
 // @flow strict
 
-import React from 'react'; // $FlowFixMe
-import { Link } from 'react-router-dom'; // $FlowFixMe
+import React, { Fragment } from 'react'; // $FlowFixMe
+import { Link, withRouter } from 'react-router-dom'; // $FlowFixMe
 import { connect } from 'react-redux';
 
 import { Questionnaire } from '../styled/page';
 import { receiveCourseInput } from '../../actions/inputs';
+import type { LectureTopic } from '../../reducers/types';
 import type { State } from '../../reducers/types/reducer-states';
 import type { Dispatch } from '../../actions/types';
 
 type StateProps = {
   inputs: Array<string>,
+  topic: LectureTopic,
 };
 
 type DispatchProps = {
  onReceiveInput: (inputs: Array<string>) => void,
 };
 
-type Props = StateProps & DispatchProps;
+type Props = StateProps & DispatchProps & { history: { goBack: () => void } };
 
-const PostCourseQuestionnaire = ({ inputs, onReceiveInput }: Props) => {
+const PostCourseQuestionnaire = ({ inputs, onReceiveInput, history, topic }: Props) => {
   let one, two, three, four;
   if (inputs != null) {
     ([one, two, three, four] = inputs);
@@ -27,7 +29,7 @@ const PostCourseQuestionnaire = ({ inputs, onReceiveInput }: Props) => {
 
   return (
     <div>
-      <h3><Link to='../'>Course Overview</Link>{' > Post-course Questionnaire > '}<Link to='../end/'>Next steps</Link></h3>
+      <h3>{topic != null && <Fragment><Link onClick={() => history.goBack()}>{`${topic.charAt(0).toUpperCase()}${topic.slice(1)}`}</Link></Fragment>}{' > Post-course Questionnaire > '}<Link to='../end/'>Next steps</Link></h3>
 
       <Questionnaire>
         <p>What have I learned about how I learn in this course that I could use in my future technology courses? In my career?</p>
@@ -46,10 +48,11 @@ const PostCourseQuestionnaire = ({ inputs, onReceiveInput }: Props) => {
 
 const mapStateToProps = (state: State): StateProps => ({
   inputs: state.inputs.coursePost,
+  topic: state.base.topic,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   onReceiveInput: (inputs: Array<string>) => dispatch(receiveCourseInput(inputs, 'coursePost')),
 });
 
-export default connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(PostCourseQuestionnaire);
+export default withRouter(connect<Props, {||}, StateProps, DispatchProps, _, _>(mapStateToProps, mapDispatchToProps)(PostCourseQuestionnaire));

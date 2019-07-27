@@ -22,5 +22,5 @@ export type InputType =
 export type Subject = {
   week: number,
   subpath?: number,
-  previousTopic: LectureTopic,
+  previousTopic?: LectureTopic,
 };

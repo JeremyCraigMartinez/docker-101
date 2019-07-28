@@ -1,6 +1,6 @@
 // @flow strict
 
-const markdown = `# Course Overview
+const markdown = `# Welcome to Docker 101
 
 This is Docker 101, a metacognitive approach. Here, you will find similar beginning content that you might find in another online introductory course. What sets this course apart is the surrounding curriculum. Metacognitive learning habits were studied and applied to this online course.
 

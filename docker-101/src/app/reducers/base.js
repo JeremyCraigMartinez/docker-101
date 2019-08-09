@@ -21,9 +21,10 @@ export default (state: BaseState = defaultState, action: Action) => {
         result: action.payload,
       };
     case 'SELECT_TOPIC':
+      const newTopicVisited = !state.visited.includes(action.topic);
       const newSubject = action.subject || state.subject || {};
       const currentWeek = state.subject && state.subject.week;
-      if (currentWeek && currentWeek >= 6) {
+      if (currentWeek && currentWeek >= 6 && newTopicVisited) {
         newSubject.week = currentWeek;
       }
       const previousTopic = state.topic || action.topic;
